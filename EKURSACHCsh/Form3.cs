@@ -73,7 +73,8 @@ namespace EKURSACHCsh
             StreamReader sr = new StreamReader("books.txt");
             int n = int.Parse(sr.ReadLine());
             sr.Close();
-            Book tmp = new Book(0);
+            int tm;
+            Book tmp = new Book();
             switch (fl)
             {
                 case 0:
@@ -81,37 +82,54 @@ namespace EKURSACHCsh
                     {
                         for(int j = 0; j < n; j++)
                         {
-                            if (String.Compare(b[i].name,b[j].name)>0) { b[i].id = j; b[j].id = i; ; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
-                        }
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < n; i++)
-                    {
-                        for (int j = 0; j < n; j++)
-                        {
-                            if (String.Compare(b[i].author[0], b[j].author[0]) > 0) { b[i].id = j; b[j].id = i; ; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
+                            if (String.Compare(b[i].name,b[j].name)<0) 
+                            { 
+                                tm = b[i].id; b[i].id = b[j].id; b[j].id = tm;
+                                tmp = b[i];b[i] = b[j];b[j] = tmp;
+                            }
                         }
                     }
                     break;
                 case 2:
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < n; j++)
+                        {
+                            if (String.Compare(b[i].author[0], b[j].author[0]) > 0)
+                            {
+                                tm = b[i].id; b[i].id = b[j].id; b[j].id = tm;
+                                tmp = b[i]; b[i] = b[j]; b[j] = tmp;
+                            }
+                        }
+                    }
+                    break;
+                case 1:
+                    
+                    Console.WriteLine();
                     if (n != 0)
                     {
                         for(int i = 0; i < n; i++)
                         {
                             for(int j = 0; j < n; j++)
                             {
-                                if (b[i].date[2] > b[j].date[2]) { b[i].id = j;b[j].id = i; ; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
-                                else if (b[i].date[2] == b[j].date[2] && b[i].date[1] > b[j].date[1]) { b[i].id = j; b[j].id = i; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
+                                if (b[i].date[2] < b[j].date[2]) { tm = b[i].id; b[i].id = b[j].id; b[j].id = tm; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
+                                else if (b[i].date[2] == b[j].date[2] && b[i].date[1] < b[j].date[1]) { tm = b[i].id; b[i].id = b[j].id; b[j].id = tm; tmp = b[i]; b[i] = b[j]; b[j] = tmp; }
                             }
                         }
+                       
                     }
                     break;
             }
+            for(int i = 0; i < 14; i++)
+            {
+                var a = Controls.Find("Book_Panel" + n, true)[0] as Panel;
+                a.Controls.Clear();
+            }
+
             for(int i = 0; i < n; i++)
             {
                 var a = Controls.Find("Book_Panel" + Convert.ToString(b[i].id), true)[0] as Panel;
-                Pair(b[i], a, false);
+                Pair(b[i], a, true);
             }
         }
 
@@ -127,7 +145,7 @@ namespace EKURSACHCsh
 
             Label N = new Label();
             N.Location = new Point(132, 3);
-            N.Size = new Size(100, 17);
+            N.Size = new Size(130, 17);
             N.Name = "Book_Name" + id;
             p.Controls.Add(N);
 
@@ -190,7 +208,11 @@ namespace EKURSACHCsh
                 b.date[j] = int.Parse(sr.ReadLine());
             }
 
-            b.amount = int.Parse(sr.ReadLine());
+            try
+            {
+                b.amount = int.Parse(sr.ReadLine());
+            }
+            catch { b.amount = 0; }
             b.path = sr.ReadLine();
             return b;
         }
@@ -288,7 +310,8 @@ namespace EKURSACHCsh
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            sort(b, 0);
+            textBox1.Text = "Hi";
+            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -331,6 +354,11 @@ namespace EKURSACHCsh
         private void panel1_MouseHover(object sender, EventArgs e)
         {
             panel2.Size = new Size(168, 25);
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            sort(b, 0);
         }
     }
 }

@@ -39,19 +39,36 @@ namespace EKURSACHCsh
 
         private void button1_Click(object sender, EventArgs e)
         {
-            book[id].amount -= 1;
-            f1.Close();
-            
             StreamReader sr = new StreamReader("books.txt");
             int n = int.Parse(sr.ReadLine());
             sr.Close();
-            StreamWriter sw = new StreamWriter("books.txt");
-            sw.WriteLine(n);
-            for(int i = 0; i < n; i++)
+            book[id].amount -= 1;
+            f1.Close();
+            if (book[id].amount <= 0)
             {
-                book[i].Write(sw);
+                for (int i = id; i < n - 1; i++)
+                {
+                    book[id] = book[id + 1];
+                    book[id].id -= 1;
+                }
+                StreamWriter sw = new StreamWriter("books.txt");
+                sw.WriteLine(n - 1);
+                for (int i = 0; i < n - 1; i++)
+                {
+                    book[i].Write(sw);
+                }
+                sw.Close();
             }
-            sw.Close();
+            else
+            {
+                StreamWriter sw = new StreamWriter("books.txt");
+                sw.WriteLine(n);
+                for (int i = 0; i < n; i++)
+                {
+                    book[i].Write(sw);
+                }
+                sw.Close();
+            }
 
 
             FileInfo fi1 = new FileInfo(log + ".txt");

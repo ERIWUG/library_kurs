@@ -40,6 +40,7 @@ namespace EKURSACHCsh
                     MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly);
                 Activate();
+                sr.Close();
             }
             else
             {
@@ -56,7 +57,8 @@ namespace EKURSACHCsh
                 {
                     DialogResult dr = MessageBox.Show(
                         "Вернуться?",
-                        "Такой пользователь уже существует",
+                        "Такой пользователь уже сущес" +
+                        "твует",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Information,
                         MessageBoxDefaultButton.Button1,
@@ -71,7 +73,7 @@ namespace EKURSACHCsh
                 else
                 {
                     StreamWriter sw = new StreamWriter("pass.txt", true);
-                    sw.Write(p + '\n');
+                    sw.WriteLine(p);
                     sw.Close();
                     DialogResult dr = MessageBox.Show(
                         "Новый пользователь был создан",
@@ -86,12 +88,6 @@ namespace EKURSACHCsh
                 }
             }
         }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             f1.Activate();

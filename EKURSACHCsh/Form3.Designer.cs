@@ -77,9 +77,9 @@ namespace EKURSACHCsh
             this.panel1.Controls.Add(this.Book_Panel3);
             this.panel1.Controls.Add(this.Book_Panel1);
             this.panel1.Controls.Add(this.Book_Panel0);
-            this.panel1.Location = new System.Drawing.Point(3, 101);
+            this.panel1.Location = new System.Drawing.Point(3, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1192, 490);
+            this.panel1.Size = new System.Drawing.Size(1192, 537);
             this.panel1.TabIndex = 0;
             this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
             // 
@@ -190,7 +190,7 @@ namespace EKURSACHCsh
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1076, 52);
+            this.button1.Location = new System.Drawing.Point(1076, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 36);
             this.button1.TabIndex = 1;
@@ -200,7 +200,7 @@ namespace EKURSACHCsh
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(810, 62);
+            this.label1.Location = new System.Drawing.Point(831, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 3;
@@ -208,7 +208,7 @@ namespace EKURSACHCsh
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(868, 59);
+            this.textBox1.Location = new System.Drawing.Point(903, 18);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(122, 22);
             this.textBox1.TabIndex = 4;
@@ -216,7 +216,7 @@ namespace EKURSACHCsh
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 42);
+            this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(207, 39);
             this.button2.TabIndex = 5;
@@ -227,7 +227,7 @@ namespace EKURSACHCsh
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(245, 42);
+            this.button3.Location = new System.Drawing.Point(235, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(175, 39);
             this.button3.TabIndex = 6;
@@ -239,7 +239,7 @@ namespace EKURSACHCsh
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(447, 56);
+            this.label2.Location = new System.Drawing.Point(445, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 17);
             this.label2.TabIndex = 7;
@@ -250,7 +250,7 @@ namespace EKURSACHCsh
             this.panel2.Controls.Add(this.radioButton1);
             this.panel2.Controls.Add(this.radioButton3);
             this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(570, 48);
+            this.panel2.Location = new System.Drawing.Point(580, 15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(135, 25);
             this.panel2.TabIndex = 8;
@@ -265,6 +265,7 @@ namespace EKURSACHCsh
             this.radioButton1.TabIndex = 3;
             this.radioButton1.Text = "Названию";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
             // 
             // radioButton3
             // 

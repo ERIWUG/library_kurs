@@ -66,9 +66,6 @@ namespace EKURSACHCsh
             else { Activate(); }
         }
 
-        private void Form7_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

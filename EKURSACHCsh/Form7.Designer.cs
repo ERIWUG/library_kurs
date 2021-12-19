@@ -166,7 +166,6 @@ namespace EKURSACHCsh
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form7";
             this.Text = "Form7";
-            this.Load += new System.EventHandler(this.Form7_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -21,11 +21,6 @@ namespace EKURSACHCsh
             InitializeComponent();
         }
 
-        private void Form6_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -82,6 +77,17 @@ namespace EKURSACHCsh
                 Close();
 
             }
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            Book b = book[0];
+            pictureBox1.ImageLocation = b.path;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            label1.Text = b.name;
+            label2.Text = b.author[0] + " " + b.author[1] + " " + b.author[2];
+            label5.Text = Convert.ToString(b.date[0]) + "." + Convert.ToString(b.date[1]) + "." + Convert.ToString(b.date[2]);
+            label4.Text = Convert.ToString(b.amount);
         }
     }
 }
